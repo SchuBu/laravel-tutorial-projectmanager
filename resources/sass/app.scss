@@ -1,14 +1,51 @@
-
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito');
-
 // Variables
 @import 'variables';
-
+// Tailwind
+@tailwind preflight;
+@tailwind components;
+@tailwind utilities;
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
-.navbar-laravel {
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+body,html {
+    @apply tw-h-full;
+}
+
+body {
+    @apply tw-flex tw-flex-col;
+}
+
+header {
+    @apply tw-bg-blue-light;
+}
+
+main {
+    @apply tw-bg-red-lightest tw-flex-1 tw-flex tw-flex-col;
+
+    nav.sidebar {
+        @apply tw-bg-grey-dark tw-flex-no-shrink;
+    }
+
+    .content {
+        @apply tw-bg-grey-lightest tw-flex-1;
+    }
+}
+
+@screen md {
+    main {
+        @apply tw-flex tw-flex-row;
+        nav.sidebar {
+            width:200px;
+        }
+    }
+}
+
+header,footer,nav.sidebar,.content {
+    @apply tw-p-6;
+}
+
+footer {
+    @apply tw-bg-blue-darker tw-text-white;
 }
